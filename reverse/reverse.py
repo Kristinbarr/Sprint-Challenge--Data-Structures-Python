@@ -24,7 +24,7 @@ class LinkedList:
     node = Node(value)
     if self.head is not None:
       node.set_next(self.head)
-    
+
     self.head = node
 
   def contains(self, value):
@@ -32,7 +32,7 @@ class LinkedList:
       return False
     # get a reference to the node we're currently at; update this as we traverse the list
     current = self.head
-    # check to see if we're at a valid node 
+    # check to see if we're at a valid node
     while current:
       # return True if the current value we're looking at matches our target value
       if current.get_value() == value:
@@ -43,5 +43,30 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+
+    # save values
+    # switch values
+    # change head
+
+    # save node in cur position, start w copy of current head (v5,n4)
+    curr = self.head
+    # save node in prev position, currently none but will be (v4,n3)
+    prev = None
+
+    # while head.next is not none
+    while curr != None:
+      # temp to save curr.next
+      tempNext = curr.next_node
+      # set curr.next to prev (none)
+      curr.next_node = prev
+
+      # reset/reassign/shift variables over:
+
+      # reset/shift prev to be new cur (4)
+      prev = curr
+      # reset curr to future next node(temp)
+      curr = tempNext
+
+    # set head to prev once at the end (saved in outer scope)
+    self.head = prev
+
