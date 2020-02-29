@@ -62,7 +62,7 @@ class LinkedList:
 # (1, n:None) (2, n:1) (3, n:4) (4, n:None)
 
 # pre: (3, n:2)
-# cur: (4, n: None) -> (4, n:pre)
+# cur: (4, n:None) -> (4, n:pre)
 # nex: None
 # (1, n:None) (2, n:1) (3, n:2) (4, n:3)
 
@@ -72,27 +72,18 @@ class LinkedList:
       return
 
     pre = None
+    # save cur node starting at first node
     cur = self.head
-    print('\nCUR START:',cur.value)
-    nex = cur.next_node
 
-    # while temp itself is not None
-    while nex is not None:
-      # save cur node(starting at first node)
-      # cur = self.head
-      # save nex for the cur node's next
-      # nex = self.head.next_node
-      # print('NEX:', nex.value)
-      # reassign cur node's next
+    # while nex itself is not None
+    while cur is not None:
+
+      nex = cur.next_node
+
+      # reassign pointer to previous
       cur.next_node = pre
 
-      # reassign cur to the nex node
-      cur = nex
-      print('\nCUR:',cur.value)
-      # reassign nex to the cur.next_node
-      nex = cur.next_node
-      print('NEX:',nex.value)
-      # reassign pre to the cur node
       pre = cur
-      print('PRE:',pre.value)
-      
+      cur = nex
+
+    self.head = pre
