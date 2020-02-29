@@ -39,11 +39,10 @@ class BinarySearchTree:
             if self.left == None:
                 return False
             # repeat on left
-            print('left node val:',self.left.value)
             return self.left.contains(target)
         # if target is larger than root:
         else: # target >= self.value:
-            if self.left == None:
+            if self.right == None:
                 return False
             # repeat on right side
             return self.right.contains(target)
