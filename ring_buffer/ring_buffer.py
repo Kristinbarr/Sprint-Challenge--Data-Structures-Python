@@ -25,7 +25,8 @@ class RingBuffer:
     def get(self):
         # Note:  This is the only [] allowed
         list_buffer_contents = []
-
+        
+        # start from the head
         current = self.storage.head
         # temp length variable
         size = self.storage.length
